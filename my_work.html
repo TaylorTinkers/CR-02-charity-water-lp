@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Support, Proven Impact</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      margin: 10;
+      font-family: 'Avenir', Arial, sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      background-color: #0a2e63;
+    }
+
+    .header {
+      background-color: #f9cc00;
+      padding: 2rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 150%; /* directly below the yellow strip */
+      left: 10px;
+      transform: translateY(-50%);
+      background-color: #0a2e63;
+      padding: 0.5rem;
+      border-radius: 8px;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .left, .right {
+      flex: 1;
+      min-width: 300px;
+      padding: 1rem;
+    }
+
+    .left {
+      background: url('placeholder-image.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      position: relative;
+      min-height: 400px;
+    }
+
+    .left p {
+      background: rgba(0,0,0,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 250px;
+      margin: 1in; /* 1 inch margin from edges */
+      font-size: 1rem;
+    }
+
+    .right h1 {
+      font-size: 3rem; /* bigger size for standout */
+      margin-bottom: 1rem;
+      text-align: right; /* right aligned */
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f9cc00;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 1rem auto;
+      display: block;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .impact-text {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .impact-text img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    .thank-you {
+      display: none;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .right h1 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <!-- Logo placed directly below yellow border, overlapping left side background -->
+    <img src="logo-placeholder.png" alt="Logo" class="logo" style="height: 40px;">
+  </header>
+
+  <main id="mainContent" class="container">
+    <section class="left">
+      <p>100% of your gift brings clean water to families in need.</p>
+    </section>
+
+    <section class="right">
+      <h1>Your Support,<br>Proven Impact</h1>
+      <button class="btn" onclick="showThankYou()">Start changing lives now</button>
+      <div class="impact-text">
+        <img src="child-placeholder.jpg" alt="Smiling child with clean water">
+        <p>From health to education to opportunity, your gift creates measurable, lasting impact for families worldwide.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="thankYou" class="thank-you">
+    Thank you for your contribution.
+  </div>
+
+  <script>
+    function showThankYou() {
+      document.getElementById('mainContent').style.display = 'none';
+      document.getElementById('thankYou').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
