@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Ensure proper scaling on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Support, Proven Impact</title>
+  <style>
+    html, body {
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrolling */
+    }
+    body {
+      margin: 0;
+      /* Use Avenir for all text, with Arial and sans-serif as fallback */
+      font-family: 'Avenir', Arial, sans-serif;
+      line-height: 1.6;
+      color: #fff;
+      /* Reverted background color to original blue (#0a2e63) */
+      background-color: #0a2e63;
+      height: 100vh; /* Make body take full viewport height */
+    }
+
+    .header {
+  background-color: #f9cc00;
+  padding: 0.7rem 1rem;
+  text-align: left;
+    }
+
+    .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* Stretch children to fill container height */
+  justify-content: center;
+  padding: 0;
+  height: 100vh;
+  min-height: 0;
+    }
+
+    .left, .right {
+  flex: 1;
+  min-width: 300px;
+  padding: 1rem;
+  height: 100%;
+  box-sizing: border-box;
+  min-height: 0;
+    }
+
+    .left {
+      /* Changed background image to Background.png */
+      background: url('img/Background.png') center/cover no-repeat;
+  display: flex;
+  align-items: flex-end; /* Always bottom */
+  justify-content: flex-start; /* Always left */
+  padding-bottom: 6rem; /* Bring text up on desktop */
+  position: relative;
+  min-height: 400px;
+  height: 100%;
+  /* No z-index here, let children control stacking */
+    /* On mobile, keep text at the bottom left of the background image */
+    @media (max-width: 600px) {
+      .left {
+        align-items: flex-end;
+        justify-content: flex-start;
+        padding-bottom: 2rem;
+      }
+    }
+    }
+
+    /* Add a semi-transparent overlay for 50% transparency effect */
+    .left::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5); /* Black overlay at 50% opacity */
+      z-index: 1;
+       height: 100vh; /* Keep fixed height on desktop */
+       min-height: 0; 
+
+    /* Make the text appear above the overlay */
+      /* On mobile, allow scrolling and remove fixed heights */
+      @media (max-width: 600px) {
+        html, body, .container {
+          height: auto !important;
+          min-height: 100vh;
+          overflow: auto !important;
+        }
+        .left, .right {
+          height: auto !important;
+          min-height: 0;
+        }
+      }
+    .left p {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      background: rgba(0,0,0,0.0); /* Remove extra background for clarity */
+      padding: 1rem;
+      border-radius: 8px;
+      max-width: 250px;
+      margin: 1rem;
+      font-size: 1rem;
+    }
+    }
+}
+
+/* Add a semi-transparent overlay for 50% transparency effect */
+.left::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* Black overlay at 50% opacity */
+  z-index: 0;
+  pointer-events: none;
+}
+
+.left p {
+  position: relative;
+  z-index: 1;
+}
+
+
+    }
+
+    .left p {
+      background: rgba(0,0,0,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+  max-width: 220px; /* Force two lines */
+    /* On mobile, bring text further down and allow more width for wrapping */
+    @media (max-width: 600px) {
+      .left {
+        padding-bottom: 2rem;
+      }
+      .left p {
+        max-width: 90vw;
+      }
+    }
+  margin: 1rem;
+      font-size: 1rem;
+    }
+
+    .right h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f9cc00;
+      color: #000;
+      padding: 0.8rem 1.5rem;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      margin: 1rem auto;
+      display: block;
+      text-align: center;
+    }
+
+    .impact-text {
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 2rem; /* Make impact text larger */
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Make impact text responsive for mobile devices */
+    @media (max-width: 600px) {
+      .impact-text {
+        font-size: 1.2rem;
+      }
+    }
+
+    .impact-text img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .right h1 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+  <!-- No logo image here, logo will be in the left section -->
+  </header>
+
+  <main class="container">
+    <section class="left">
+  <img src="img/water-can-transparent.png" alt="Charity Water Logo" style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%; margin-top: 0.2rem; margin-left: 1rem; display: block; z-index: 10; position: relative;">
+  <p>100% of your gift brings clean water to families in need.</p>
+    </section>
+
+    <section class="right">
+  <h1>Your Support,<br>Proven Impact</h1>
+  <a href="thank_you.html" class="btn">Start changing lives now</a>
+      <div class="impact-text">
+  <img src="img/Child.png" alt="Smiling child with clean water">
+        <p>From health to education to opportunity, your gift creates measurable, lasting impact for families worldwide.</p>
+      </div>
+    </section>
+  </main>
+</body>
+  <script>
+    // Extra JS fallback: On small screens, remove fixed heights and overflow to allow scrolling
+    function adjustForMobile() {
+      if (window.innerWidth <= 600) {
+        document.documentElement.style.height = 'auto';
+        document.body.style.height = 'auto';
+        var container = document.querySelector('.container');
+        if (container) container.style.height = 'auto';
+        document.documentElement.style.overflow = 'auto';
+        document.body.style.overflow = 'auto';
+        if (container) container.style.overflow = 'auto';
+        var left = document.querySelector('.left');
+        var right = document.querySelector('.right');
+        if (left) left.style.height = 'auto';
+        if (right) right.style.height = 'auto';
+      }
+    }
+    window.addEventListener('resize', adjustForMobile);
+    window.addEventListener('DOMContentLoaded', adjustForMobile);
+  </script>
+</html>

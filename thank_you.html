@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You for Donating</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: #0a2e63;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Avenir', Arial, sans-serif;
+      position: relative;
+      overflow: hidden;
+    }
+    .message {
+      text-align: center;
+      font-size: 2rem;
+      z-index: 1;
+    }
+    .confetti {
+      position: absolute;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="message">Thank you for donating! 🎉</div>
+  <canvas class="confetti"></canvas>
+  <script>
+    // Simple confetti animation
+    const canvas = document.querySelector('.confetti');
+    const ctx = canvas.getContext('2d');
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+    let pieces = [];
+    for(let i=0;i<120;i++){
+      pieces.push({
+        x: Math.random()*W,
+        y: Math.random()*H,
+        r: Math.random()*6+4,
+        d: Math.random()*Math.PI*2,
+        color: `hsl(${Math.random()*360},90%,60%)`,
+        tilt: Math.random()*10-5
+      });
+    }
+    function draw(){
+      ctx.clearRect(0,0,W,H);
+      for(let p of pieces){
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+        ctx.fillStyle=p.color;
+        ctx.fill();
+      }
+    }
+    function update(){
+      for(let p of pieces){
+        p.y+=2+Math.random()*2;
+        p.x+=Math.sin(p.d);
+        p.d+=0.02;
+        if(p.y>H){p.y=0;p.x=Math.random()*W;}
+      }
+    }
+    function loop(){
+      draw();
+      update();
+      requestAnimationFrame(loop);
+    }
+    loop();
+    window.addEventListener('resize',()=>{
+      W=window.innerWidth;H=window.innerHeight;
+      canvas.width=W;canvas.height=H;
+    });
+  </script>
+</body>
+</html>
